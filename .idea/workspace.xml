@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2692fa2b-0790-4a53-af3d-330d23b24836" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="190" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="XML FILES" />
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>hei</find>
+      <find>myaddhouse</find>
+      <find>newhelp</find>
+      <find>sell.js</find>
+      <find>mycomplaint</find>
+      <find>usercom</find>
+      <find>../../</find>
+      <find>allhelp</find>
+      <find>reason</find>
+      <find>field</find>
+      <find>addl</find>
+      <find>result</find>
+      <find>delete</find>
+      <find>getallcom</find>
+      <find>lookorder</find>
+      <find>orderpage=1&quot;</find>
+      <find>myorder</find>
+      <find>help.jsp</find>
+      <find>mid</find>
+      <find>uid</find>
+      <find>首页</find>
+      <find>addo</find>
+      <find>order</find>
+      <find>insertorder</find>
+      <find>like</find>
+      <find>oid</find>
+      <find>厨房</find>
+      <find>single</find>
+      <find>addh</find>
+      <find>商品</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>../static/</replace>
+      <replace>&lt;h1&gt;28,000 RMB&lt;/h1&gt;</replace>
+      <replace>&lt;h1&gt;￥8450&lt;/h1&gt;</replace>
+      <replace>../img/images/</replace>
+      <replace>managerpower</replace>
+      <replace>manager</replace>
+      <replace>managerID2</replace>
+      <replace>ceceff</replace>
+      <replace>其他公告</replace>
+      <replace>../../static</replace>
+      <replace>newhelp</replace>
+      <replace>allhelp</replace>
+      <replace>mycom</replace>
+      <replace>../</replace>
+      <replace>myhelp</replace>
+      <replace>orderpage=1&amp;&amp;state=&quot;&lt;%=state%&gt;</replace>
+      <replace>客厅</replace>
+    </replaceStrings>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:/apache-maven-3.6.0" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1Te5LrHQexOMqTRZv1yRudTAmlE" />
+  <component name="PropertiesComponent">
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JSP" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.36091954" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace\lastproject\src\main\resources\templates" />
+      <recent name="D:\workspace\lastproject\src\main\resources\templates\manager" />
+      <recent name="D:\workspace\lastproject\src\main\resources\static\img\upload" />
+      <recent name="D:\workspace\lastproject\src\main\resources\static\img" />
+      <recent name="D:\workspace\lastproject\src\main\resources\static\img\upload\68" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.springboot.controller" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\workspace\lastproject\src\main\resources\templates\sell" />
+      <recent name="D:\workspace\lastproject\src\main\resources\static\img\houtai" />
+      <recent name="D:\workspace\lastproject\src\main\resources\templates\manager" />
+      <recent name="D:\workspace\lastproject\src\main\resources\templates" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.App">
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.springboot.App" />
+      <module name="lastproject" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.springboot.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="App" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="lastproject" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.springboot.App" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2692fa2b-0790-4a53-af3d-330d23b24836" name="Default Changelist" comment="" />
+      <created>1555375020325</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1555375020325</updated>
+      <workItem from="1555375023273" duration="20413000" />
+      <workItem from="1555463914804" duration="11365000" />
+      <workItem from="1555488400907" duration="1945000" />
+      <workItem from="1555552553954" duration="677000" />
+      <workItem from="1555565676852" duration="3444000" />
+      <workItem from="1555570050281" duration="1248000" />
+      <workItem from="1555571441880" duration="14216000" />
+      <workItem from="1555637932753" duration="8886000" />
+      <workItem from="1555654887535" duration="1709000" />
+      <workItem from="1555656765799" duration="26146000" />
+      <workItem from="1555729641771" duration="41843000" />
+      <workItem from="1555807812854" duration="6068000" />
+      <workItem from="1555814793793" duration="4357000" />
+      <workItem from="1555896300911" duration="1254000" />
+      <workItem from="1555909505547" duration="6291000" />
+      <workItem from="1555983965286" duration="34721000" />
+      <workItem from="1556066704903" duration="433000" />
+      <workItem from="1556071417535" duration="18504000" />
+      <workItem from="1556263414623" duration="9561000" />
+      <workItem from="1556345037093" duration="512000" />
+      <workItem from="1556346032628" duration="15264000" />
+      <workItem from="1556437016038" duration="4736000" />
+      <workItem from="1556504302953" duration="21567000" />
+      <workItem from="1556593206688" duration="26472000" />
+      <workItem from="1556684240205" duration="41236000" />
+      <workItem from="1556770319827" duration="31767000" />
+      <workItem from="1556855920972" duration="27749000" />
+      <workItem from="1556937745195" duration="9818000" />
+      <workItem from="1556951595999" duration="610000" />
+      <workItem from="1556952938196" duration="21775000" />
+      <workItem from="1557024267072" duration="13956000" />
+      <workItem from="1557110991667" duration="8689000" />
+      <workItem from="1557205106835" duration="4575000" />
+      <workItem from="1557216794261" duration="8602000" />
+      <workItem from="1557229396994" duration="2376000" />
+      <workItem from="1557292424323" duration="21874000" />
+      <workItem from="1557374467057" duration="20127000" />
+      <workItem from="1557469821898" duration="13088000" />
+      <workItem from="1557546155443" duration="26267000" />
+      <workItem from="1557591055963" duration="120000" />
+      <workItem from="1557632291093" duration="16316000" />
+      <workItem from="1557717989793" duration="5339000" />
+      <workItem from="1557729176646" duration="18892000" />
+      <workItem from="1557889132594" duration="19399000" />
+      <workItem from="1557977194346" duration="32521000" />
+      <workItem from="1558061251044" duration="5466000" />
+      <workItem from="1558068493253" duration="7770000" />
+      <workItem from="1558076456635" duration="13763000" />
+      <workItem from="1558095988003" duration="1595000" />
+      <workItem from="1558099383987" duration="58000" />
+      <workItem from="1558100247178" duration="1102000" />
+      <workItem from="1558111582784" duration="285000" />
+      <workItem from="1558235949136" duration="4440000" />
+      <workItem from="1558241729048" duration="400000" />
+      <workItem from="1558242282525" duration="4760000" />
+      <workItem from="1558279941890" duration="542000" />
+      <workItem from="1558323703010" duration="5782000" />
+      <workItem from="1558455435211" duration="5309000" />
+      <workItem from="1558493759518" duration="9192000" />
+      <workItem from="1558595630171" duration="6044000" />
+      <workItem from="1558690648139" duration="2159000" />
+      <workItem from="1558941036275" duration="1692000" />
+      <workItem from="1559017000443" duration="2884000" />
+      <workItem from="1559026287298" duration="1853000" />
+      <workItem from="1559441294539" duration="6713000" />
+      <workItem from="1573807669420" duration="1826000" />
+      <workItem from="1573818842857" duration="262000" />
+      <workItem from="1573820199817" duration="2744000" />
+      <workItem from="1574234200614" duration="20000" />
+      <workItem from="1574238644294" duration="704000" />
+      <workItem from="1574241479388" duration="974000" />
+      <workItem from="1630228890495" duration="1432000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/resources/templates/manager/listmanager.jsp</url>
+          <line>124</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/springboot/controller/ManagerController.java</url>
+          <line>187</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/springboot/controller/ManagerController.java</url>
+          <line>421</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/resources/templates/sell/my-search-property.jsp</url>
+          <line>66</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/springboot/controller/UserController.java</url>
+          <line>94</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/springboot/controller/UserController.java</url>
+          <line>540</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/resources/templates/sell/my-search-property.jsp</url>
+          <line>150</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XPathView.XPathProjectComponent">
+    <history />
+    <find-history>
+      <element expression="307" />
+    </find-history>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/lastproject$App.ic" NAME="App Coverage Results" MODIFIED="1555571032952" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.springboot.*</FILTER>
+    </SUITE>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.36091954" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Web (lastproject)|Web</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.36091954" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.36091954" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.36091954" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>lastproject</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.36091954" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Java EE 6-Java EE 6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.36091954" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

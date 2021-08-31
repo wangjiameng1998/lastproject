@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.dao.NoticeMapper">
+  <resultMap id="BaseResultMap" type="com.springboot.dataObject.Notice">
+    <id column="NoticeID" jdbcType="INTEGER" property="noticeid" />
+    <result column="Noticetime" jdbcType="TIMESTAMP" property="noticetime" />
+    <result column="Noticecontent" jdbcType="VARCHAR" property="noticecontent" />
+    <result column="Noticemanager" jdbcType="INTEGER" property="noticemanager" />
+    <result column="field2" jdbcType="INTEGER" property="field2" />
+    <result column="Noticetitle" jdbcType="VARCHAR" property="noticetitle" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    NoticeID, Noticetime, Noticecontent, Noticemanager, field2, Noticetitle
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from notice_info
+    where NoticeID = #{noticeid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from notice_info
+    where NoticeID = #{noticeid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.springboot.dataObject.Notice">
+    insert into notice_info (NoticeID, Noticetime, Noticecontent, 
+      Noticemanager, field2, Noticetitle
+      )
+    values (#{noticeid,jdbcType=INTEGER}, #{noticetime,jdbcType=TIMESTAMP}, #{noticecontent,jdbcType=VARCHAR}, 
+      #{noticemanager,jdbcType=INTEGER}, #{field2,jdbcType=INTEGER}, #{noticetitle,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.springboot.dataObject.Notice">
+    insert into notice_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="noticeid != null">
+        NoticeID,
+      </if>
+      <if test="noticetime != null">
+        Noticetime,
+      </if>
+      <if test="noticecontent != null">
+        Noticecontent,
+      </if>
+      <if test="noticemanager != null">
+        Noticemanager,
+      </if>
+      <if test="field2 != null">
+        field2,
+      </if>
+      <if test="noticetitle != null">
+        Noticetitle,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="noticeid != null">
+        #{noticeid,jdbcType=INTEGER},
+      </if>
+      <if test="noticetime != null">
+        #{noticetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="noticecontent != null">
+        #{noticecontent,jdbcType=VARCHAR},
+      </if>
+      <if test="noticemanager != null">
+        #{noticemanager,jdbcType=INTEGER},
+      </if>
+      <if test="field2 != null">
+        #{field2,jdbcType=INTEGER},
+      </if>
+      <if test="noticetitle != null">
+        #{noticetitle,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.springboot.dataObject.Notice">
+    update notice_info
+    <set>
+      <if test="noticetime != null">
+        Noticetime = #{noticetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="noticecontent != null">
+        Noticecontent = #{noticecontent,jdbcType=VARCHAR},
+      </if>
+      <if test="noticemanager != null">
+        Noticemanager = #{noticemanager,jdbcType=INTEGER},
+      </if>
+      <if test="field2 != null">
+        field2 = #{field2,jdbcType=INTEGER},
+      </if>
+      <if test="noticetitle != null">
+        Noticetitle = #{noticetitle,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where NoticeID = #{noticeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.springboot.dataObject.Notice">
+    update notice_info
+    set Noticetime = #{noticetime,jdbcType=TIMESTAMP},
+      Noticecontent = #{noticecontent,jdbcType=VARCHAR},
+      Noticemanager = #{noticemanager,jdbcType=INTEGER},
+      field2 = #{field2,jdbcType=INTEGER},
+      Noticetitle = #{noticetitle,jdbcType=VARCHAR}
+    where NoticeID = #{noticeid,jdbcType=INTEGER}
+  </update>
+  <update id="deletenbyid" parameterType="java.lang.Integer">
+    update notice_info
+    set field2=5
+    where NoticeID = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="listallnews"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from notice_info where field2 != 5
+    order by Noticetime desc
+  </select>
+  <select id="listallnewsby" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from notice_info where field2=#{field2,jdbcType=INTEGER}
+    order by Noticetime desc
+  </select>
+  <select id="listallcontent"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from notice_info where
+    field2 != 5 and ( Noticecontent like concat("%",#{content},"%") or
+    Noticetitle like concat("%",#{content},"%") )  order by Noticetime desc
+  </select>
+  <select id="listallbycontent"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from notice_info where
+    field2 = #{field2,jdbcType=INTEGER} and ( Noticecontent like concat("%",#{content},"%") or
+    Noticetitle like concat("%",#{content},"%") ) order by Noticetime desc
+  </select>
+</mapper>

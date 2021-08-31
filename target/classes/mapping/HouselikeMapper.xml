@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.dao.HouselikeMapper">
+  <resultMap id="BaseResultMap" type="com.springboot.dataObject.Houselike">
+    <id column="HouselikeID" jdbcType="INTEGER" property="houselikeid" />
+    <result column="field" jdbcType="TIMESTAMP" property="field" />
+    <result column="Houseliker" jdbcType="INTEGER" property="houseliker" />
+    <result column="HouseID" jdbcType="INTEGER" property="houseid" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    HouselikeID, field, Houseliker, HouseID,state
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from houselike
+    where HouselikeID = #{houselikeid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from houselike
+    where HouselikeID = #{houselikeid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.springboot.dataObject.Houselike">
+    insert into houselike (HouselikeID, field, Houseliker, 
+      HouseID,state)
+    values (#{houselikeid,jdbcType=INTEGER}, #{field,jdbcType=TIMESTAMP}, #{houseliker,jdbcType=INTEGER},
+      #{houseid,jdbcType=INTEGER},#{state,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.springboot.dataObject.Houselike">
+    insert into houselike
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="houselikeid != null">
+        HouselikeID,
+      </if>
+      <if test="field != null">
+        field,
+      </if>
+      <if test="houseliker != null">
+        Houseliker,
+      </if>
+      <if test="houseid != null">
+        HouseID,
+      </if>
+      <if test="state!=null">
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="houselikeid != null">
+        #{houselikeid,jdbcType=INTEGER},
+      </if>
+      <if test="field != null">
+        #{field,jdbcType=TIMESTAMP},
+      </if>
+      <if test="houseliker != null">
+        #{houseliker,jdbcType=INTEGER},
+      </if>
+      <if test="houseid != null">
+        #{houseid,jdbcType=INTEGER},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.springboot.dataObject.Houselike">
+    update houselike
+    <set>
+      <if test="field != null">
+        field = #{field,jdbcType=TIMESTAMP},
+      </if>
+      <if test="houseliker != null">
+        Houseliker = #{houseliker,jdbcType=INTEGER},
+      </if>
+      <if test="houseid != null">
+        HouseID = #{houseid,jdbcType=INTEGER},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+    </set>
+    where HouselikeID = #{houselikeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.springboot.dataObject.Houselike">
+    update houselike
+    set field = #{field,jdbcType=TIMESTAMP},
+      Houseliker = #{houseliker,jdbcType=INTEGER},
+      HouseID = #{houseid,jdbcType=INTEGER},
+      state=#{state,jdbcType=INTEGER}
+    where HouselikeID = #{houselikeid,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectbyhid" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from houselike
+    where HouseID = #{hid,jdbcType=INTEGER} and state=0
+  </select>
+  <select id="selectbyuid" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from houselike
+    where Houseliker = #{uid,jdbcType=INTEGER}  and state=0
+  </select>
+
+  <select id="selectbyuidhid" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from houselike
+    where Houseliker = #{uid,jdbcType=INTEGER} and HouseID = #{hid,jdbcType=INTEGER} and state=0
+  </select>
+
+  <update id="deletelike" >
+    update houselike
+    set state=1
+    where HouselikeID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

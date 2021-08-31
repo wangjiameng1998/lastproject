@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.dao.ManagerMapper">
+  <resultMap id="BaseResultMap" type="com.springboot.dataObject.Manager">
+    <id column="ManagerID" jdbcType="INTEGER" property="managerid" />
+    <result column="Managersex" jdbcType="CHAR" property="managersex" />
+    <result column="Managername" jdbcType="VARCHAR" property="managername" />
+    <result column="managerpower" jdbcType="INTEGER" property="managerpower" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ManagerID, Managersex, Managername, managerpower
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from manager_info
+    where ManagerID = #{managerid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from manager_info
+    where ManagerID = #{managerid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.springboot.dataObject.Manager">
+    insert into manager_info (ManagerID, Managersex, Managername, 
+      managerpower)
+    values (#{managerid,jdbcType=INTEGER}, #{managersex,jdbcType=CHAR}, #{managername,jdbcType=VARCHAR}, 
+      #{managerpower,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.springboot.dataObject.Manager">
+    insert into manager_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="managerid != null">
+        ManagerID,
+      </if>
+      <if test="managersex != null">
+        Managersex,
+      </if>
+      <if test="managername != null">
+        Managername,
+      </if>
+      <if test="managerpower != null">
+        managerpower,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="managerid != null">
+        #{managerid,jdbcType=INTEGER},
+      </if>
+      <if test="managersex != null">
+        #{managersex,jdbcType=CHAR},
+      </if>
+      <if test="managername != null">
+        #{managername,jdbcType=VARCHAR},
+      </if>
+      <if test="managerpower != null">
+        #{managerpower,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.springboot.dataObject.Manager">
+    update manager_info
+    <set>
+      <if test="managersex != null">
+        Managersex = #{managersex,jdbcType=CHAR},
+      </if>
+      <if test="managername != null">
+        Managername = #{managername,jdbcType=VARCHAR},
+      </if>
+      <if test="managerpower != null">
+        managerpower = #{managerpower,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ManagerID = #{managerid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.springboot.dataObject.Manager">
+    update manager_info
+    set Managersex = #{managersex,jdbcType=CHAR},
+      Managername = #{managername,jdbcType=VARCHAR},
+      managerpower = #{managerpower,jdbcType=INTEGER}
+    where ManagerID = #{managerid,jdbcType=INTEGER}
+  </update>
+
+  <select id="listlowmanager" resultMap="BaseResultMap">
+  select
+  <include refid="Base_Column_List" />
+  from manager_info where (managerpower=0 or managerpower=20) order by ManagerID asc
+</select>
+
+  <select id="getnewest" resultType="java.lang.Integer">
+select max(ManagerID) from manager_info
+  </select>
+
+  <select id="listlowmanagerbyid" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from manager_info where  ManagerID =#{mid,jdbcType=INTEGER} and (managerpower=0 or managerpower=20)
+  </select>
+
+  <select id="listlowmanagerbyname" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from manager_info where  Managername = #{mname,jdbcType=VARCHAR} and (managerpower=0 or managerpower=20)
+  </select>
+
+  <update id="deletebymid">
+    update manager_info
+    set managerpower = managerpower+30
+    where ManagerID = #{managerid,jdbcType=INTEGER}
+  </update>
+  <update id="freezebymid">
+    update manager_info
+    set managerpower = managerpower+20
+    where ManagerID = #{managerid,jdbcType=INTEGER}
+  </update>
+  <update id="nofreezebymid">
+    update manager_info
+    set managerpower = managerpower-20
+    where ManagerID = #{managerid,jdbcType=INTEGER}
+  </update>
+</mapper>

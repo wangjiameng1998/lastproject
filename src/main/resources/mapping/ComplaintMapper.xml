@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.dao.ComplaintMapper">
+  <resultMap id="BaseResultMap" type="com.springboot.dataObject.Complaint">
+    <id column="ComID" jdbcType="INTEGER" property="comid" />
+    <result column="UserID1" jdbcType="INTEGER" property="userid1" />
+    <result column="ManagerID2" jdbcType="INTEGER" property="managerid2" />
+    <result column="Comreason" jdbcType="VARCHAR" property="comreason" />
+    <result column="ComState" jdbcType="INTEGER" property="comstate" />
+    <result column="ManagerID" jdbcType="INTEGER" property="managerid" />
+    <result column="Comtime" jdbcType="TIMESTAMP" property="comtime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ComID, UserID1, ManagerID2, Comreason, ComState, ManagerID, Comtime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from complaint
+    where ComID = #{comid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from complaint
+    where ComID = #{comid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.springboot.dataObject.Complaint">
+    insert into complaint (ComID, UserID1, ManagerID2, 
+      Comreason, ComState, ManagerID, 
+      Comtime)
+    values (#{comid,jdbcType=INTEGER}, #{userid1,jdbcType=INTEGER}, #{managerid2,jdbcType=INTEGER}, 
+      #{comreason,jdbcType=VARCHAR}, #{comstate,jdbcType=INTEGER}, #{managerid,jdbcType=INTEGER}, 
+      #{comtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.springboot.dataObject.Complaint">
+    insert into complaint
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="comid != null">
+        ComID,
+      </if>
+      <if test="userid1 != null">
+        UserID1,
+      </if>
+      <if test="managerid2 != null">
+        ManagerID2,
+      </if>
+      <if test="comreason != null">
+        Comreason,
+      </if>
+      <if test="comstate != null">
+        ComState,
+      </if>
+      <if test="managerid != null">
+        ManagerID,
+      </if>
+      <if test="comtime != null">
+        Comtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="comid != null">
+        #{comid,jdbcType=INTEGER},
+      </if>
+      <if test="userid1 != null">
+        #{userid1,jdbcType=INTEGER},
+      </if>
+      <if test="managerid2 != null">
+        #{managerid2,jdbcType=INTEGER},
+      </if>
+      <if test="comreason != null">
+        #{comreason,jdbcType=VARCHAR},
+      </if>
+      <if test="comstate != null">
+        #{comstate,jdbcType=INTEGER},
+      </if>
+      <if test="managerid != null">
+        #{managerid,jdbcType=INTEGER},
+      </if>
+      <if test="comtime != null">
+        #{comtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.springboot.dataObject.Complaint">
+    update complaint
+    <set>
+      <if test="userid1 != null">
+        UserID1 = #{userid1,jdbcType=INTEGER},
+      </if>
+      <if test="managerid2 != null">
+        ManagerID2 = #{managerid2,jdbcType=INTEGER},
+      </if>
+      <if test="comreason != null">
+        Comreason = #{comreason,jdbcType=VARCHAR},
+      </if>
+      <if test="comstate != null">
+        ComState = #{comstate,jdbcType=INTEGER},
+      </if>
+      <if test="managerid != null">
+        ManagerID = #{managerid,jdbcType=INTEGER},
+      </if>
+      <if test="comtime != null">
+        Comtime = #{comtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ComID = #{comid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.springboot.dataObject.Complaint">
+    update complaint
+    set UserID1 = #{userid1,jdbcType=INTEGER},
+      ManagerID2 = #{managerid2,jdbcType=INTEGER},
+      Comreason = #{comreason,jdbcType=VARCHAR},
+      ComState = #{comstate,jdbcType=INTEGER},
+      ManagerID = #{managerid,jdbcType=INTEGER},
+      Comtime = #{comtime,jdbcType=TIMESTAMP}
+    where ComID = #{comid,jdbcType=INTEGER}
+  </update>
+
+  <update id="agreecom">
+    update complaint
+    set  ComState =1 ,ManagerID = #{managerid,jdbcType=INTEGER}
+    where ComID = #{comid,jdbcType=INTEGER}
+  </update>
+  <update id="disagreecom">
+    update complaint
+    set  ComState =2  ,ManagerID = #{managerid,jdbcType=INTEGER}
+     where ComID = #{comid,jdbcType=INTEGER}
+  </update>
+  <update id="cancelcom">
+    update complaint
+    set  ComState =3 where ComID = #{cid,jdbcType=INTEGER}
+  </update>
+
+  <select id="listallcom" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from complaint where ComState=0
+    order by Comtime desc
+  </select>
+
+  <select id="getmycom" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from complaint where ManagerID = #{managerid,jdbcType=INTEGER}
+    order by Comtime desc
+  </select>
+
+  <select id="usercom" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from complaint where UserID1 = #{uid,jdbcType=INTEGER}
+    order by Comtime desc
+  </select>
+
+
+  <select id="getcomto" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from complaint where ManagerID2 = #{mid,jdbcType=INTEGER} and UserID1 = #{uid,jdbcType=INTEGER}
+  </select>
+</mapper>

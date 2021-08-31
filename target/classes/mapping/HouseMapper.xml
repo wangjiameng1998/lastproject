@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.dao.HouseMapper">
+  <resultMap id="BaseResultMap" type="com.springboot.dataObject.House">
+    <id column="HouseID" jdbcType="INTEGER" property="houseid" />
+    <result column="Houseaddress" jdbcType="VARCHAR" property="houseaddress" />
+    <result column="Housearea" jdbcType="INTEGER" property="housearea" />
+    <result column="Houseprice" jdbcType="INTEGER" property="houseprice" />
+    <result column="Houseface" jdbcType="VARCHAR" property="houseface" />
+    <result column="Houselift" jdbcType="INTEGER" property="houselift" />
+    <result column="Housefloor" jdbcType="INTEGER" property="housefloor" />
+    <result column="Houseage" jdbcType="INTEGER" property="houseage" />
+    <result column="Houseuse" jdbcType="VARCHAR" property="houseuse" />
+    <result column="Housestate" jdbcType="INTEGER" property="housestate" />
+    <result column="Houselike" jdbcType="INTEGER" property="houselike" />
+    <result column="Houseowner" jdbcType="INTEGER" property="houseowner" />
+    <result column="kichen" jdbcType="INTEGER" property="kichen" />
+    <result column="bedroom" jdbcType="INTEGER" property="bedroom" />
+    <result column="bathroom" jdbcType="INTEGER" property="bathroom" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    HouseID, Houseaddress, Housearea, Houseprice, Houseface, Houselift, Housefloor, Houseage, 
+    Houseuse, Housestate, Houselike, Houseowner, kichen, bedroom, bathroom
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from house_info
+    where HouseID = #{houseid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from house_info
+    where HouseID = #{houseid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.springboot.dataObject.House">
+    insert into house_info (HouseID, Houseaddress, Housearea, 
+      Houseprice, Houseface, Houselift, 
+      Housefloor, Houseage, Houseuse, 
+      Housestate, Houselike, Houseowner, 
+      kichen, bedroom, bathroom
+      )
+    values (#{houseid,jdbcType=INTEGER}, #{houseaddress,jdbcType=VARCHAR}, #{housearea,jdbcType=INTEGER}, 
+      #{houseprice,jdbcType=INTEGER}, #{houseface,jdbcType=VARCHAR}, #{houselift,jdbcType=INTEGER}, 
+      #{housefloor,jdbcType=INTEGER}, #{houseage,jdbcType=INTEGER}, #{houseuse,jdbcType=VARCHAR}, 
+      #{housestate,jdbcType=INTEGER}, #{houselike,jdbcType=INTEGER}, #{houseowner,jdbcType=INTEGER}, 
+      #{kichen,jdbcType=INTEGER}, #{bedroom,jdbcType=INTEGER}, #{bathroom,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.springboot.dataObject.House">
+    insert into house_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="houseid != null">
+        HouseID,
+      </if>
+      <if test="houseaddress != null">
+        Houseaddress,
+      </if>
+      <if test="housearea != null">
+        Housearea,
+      </if>
+      <if test="houseprice != null">
+        Houseprice,
+      </if>
+      <if test="houseface != null">
+        Houseface,
+      </if>
+      <if test="houselift != null">
+        Houselift,
+      </if>
+      <if test="housefloor != null">
+        Housefloor,
+      </if>
+      <if test="houseage != null">
+        Houseage,
+      </if>
+      <if test="houseuse != null">
+        Houseuse,
+      </if>
+      <if test="housestate != null">
+        Housestate,
+      </if>
+      <if test="houselike != null">
+        Houselike,
+      </if>
+      <if test="houseowner != null">
+        Houseowner,
+      </if>
+      <if test="kichen != null">
+        kichen,
+      </if>
+      <if test="bedroom != null">
+        bedroom,
+      </if>
+      <if test="bathroom != null">
+        bathroom,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="houseid != null">
+        #{houseid,jdbcType=INTEGER},
+      </if>
+      <if test="houseaddress != null">
+        #{houseaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="housearea != null">
+        #{housearea,jdbcType=INTEGER},
+      </if>
+      <if test="houseprice != null">
+        #{houseprice,jdbcType=INTEGER},
+      </if>
+      <if test="houseface != null">
+        #{houseface,jdbcType=VARCHAR},
+      </if>
+      <if test="houselift != null">
+        #{houselift,jdbcType=INTEGER},
+      </if>
+      <if test="housefloor != null">
+        #{housefloor,jdbcType=INTEGER},
+      </if>
+      <if test="houseage != null">
+        #{houseage,jdbcType=INTEGER},
+      </if>
+      <if test="houseuse != null">
+        #{houseuse,jdbcType=VARCHAR},
+      </if>
+      <if test="housestate != null">
+        #{housestate,jdbcType=INTEGER},
+      </if>
+      <if test="houselike != null">
+        #{houselike,jdbcType=INTEGER},
+      </if>
+      <if test="houseowner != null">
+        #{houseowner,jdbcType=INTEGER},
+      </if>
+      <if test="kichen != null">
+        #{kichen,jdbcType=INTEGER},
+      </if>
+      <if test="bedroom != null">
+        #{bedroom,jdbcType=INTEGER},
+      </if>
+      <if test="bathroom != null">
+        #{bathroom,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.springboot.dataObject.House">
+    update house_info
+    <set>
+      <if test="houseaddress != null">
+        Houseaddress = #{houseaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="housearea != null">
+        Housearea = #{housearea,jdbcType=INTEGER},
+      </if>
+      <if test="houseprice != null">
+        Houseprice = #{houseprice,jdbcType=INTEGER},
+      </if>
+      <if test="houseface != null">
+        Houseface = #{houseface,jdbcType=VARCHAR},
+      </if>
+      <if test="houselift != null">
+        Houselift = #{houselift,jdbcType=INTEGER},
+      </if>
+      <if test="housefloor != null">
+        Housefloor = #{housefloor,jdbcType=INTEGER},
+      </if>
+      <if test="houseage != null">
+        Houseage = #{houseage,jdbcType=INTEGER},
+      </if>
+      <if test="houseuse != null">
+        Houseuse = #{houseuse,jdbcType=VARCHAR},
+      </if>
+      <if test="housestate != null">
+        Housestate = #{housestate,jdbcType=INTEGER},
+      </if>
+      <if test="houselike != null">
+        Houselike = #{houselike,jdbcType=INTEGER},
+      </if>
+      <if test="houseowner != null">
+        Houseowner = #{houseowner,jdbcType=INTEGER},
+      </if>
+      <if test="kichen != null">
+        kichen = #{kichen,jdbcType=INTEGER},
+      </if>
+      <if test="bedroom != null">
+        bedroom = #{bedroom,jdbcType=INTEGER},
+      </if>
+      <if test="bathroom != null">
+        bathroom = #{bathroom,jdbcType=INTEGER},
+      </if>
+    </set>
+    where HouseID = #{houseid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.springboot.dataObject.House">
+    update house_info
+    set Houseaddress = #{houseaddress,jdbcType=VARCHAR},
+      Housearea = #{housearea,jdbcType=INTEGER},
+      Houseprice = #{houseprice,jdbcType=INTEGER},
+      Houseface = #{houseface,jdbcType=VARCHAR},
+      Houselift = #{houselift,jdbcType=INTEGER},
+      Housefloor = #{housefloor,jdbcType=INTEGER},
+      Houseage = #{houseage,jdbcType=INTEGER},
+      Houseuse = #{houseuse,jdbcType=VARCHAR},
+      Housestate = #{housestate,jdbcType=INTEGER},
+      Houselike = #{houselike,jdbcType=INTEGER},
+      Houseowner = #{houseowner,jdbcType=INTEGER},
+      kichen = #{kichen,jdbcType=INTEGER},
+      bedroom = #{bedroom,jdbcType=INTEGER},
+      bathroom = #{bathroom,jdbcType=INTEGER}
+    where HouseID = #{houseid,jdbcType=INTEGER}
+  </update>
+
+
+  <select id="myaddhouse" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from house_info
+    where Houseowner = #{mid,jdbcType=INTEGER} order by HouseID desc
+  </select>
+
+
+  <update id="nodeletehbyid" parameterType="com.springboot.dataObject.House">
+    update house_info
+    set Housestate = 0 where HouseID = #{hid,jdbcType=INTEGER}
+  </update>
+  <update id="deletehbyid" parameterType="com.springboot.dataObject.House">
+    update house_info
+    set Housestate = 2 where HouseID = #{hid,jdbcType=INTEGER}
+  </update>
+
+  <select id="getnewesthouse" resultType="java.lang.Integer">
+select max(HouseID) from house_info  where Houseowner = #{mid,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectallh"  resultMap="BaseResultMap">
+select <include refid="Base_Column_List" />
+from house_info where Housestate = 0 order by  HouseID desc
+  </select>
+
+  <select id="listallhousebylike"  resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from house_info where Housestate = 0 order by   Houselike desc
+  </select>
+
+  <update id="updatelike">
+    update house_info
+    set  Houselike = Houselike+1 where HouseID = #{hid,jdbcType=INTEGER}
+  </update>
+
+  <select id="indexsearch1" resultMap="BaseResultMap">
+  select
+  <include refid="Base_Column_List" />
+  from house_info
+  where Houseaddress like concat("%",#{address},"%") and (Housearea between #{arealow,jdbcType=INTEGER} and #{areatop,jdbcType=INTEGER}) and (Houseprice between 0 and #{priceup,jdbcType=INTEGER})
+    and Housestate = 0 order by HouseID desc
+</select>
+
+  <select id="indexsearchbylike" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from house_info
+    where Houseaddress like concat("%",#{address},"%")
+    and (Housearea between #{arealow,jdbcType=INTEGER} and #{areatop,jdbcType=INTEGER})
+ and (Houseage between #{agelow,jdbcType=INTEGER} and #{agetop,jdbcType=INTEGER})
+ and (bedroom between #{bedlow,jdbcType=INTEGER} and #{bedtop,jdbcType=INTEGER})
+    and Housestate = 0 order by Houselike desc,HouseID desc
+  </select>
+
+  <select id="indexsearchbynew" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from house_info
+    where Houseaddress like concat("%",#{address},"%")
+    and (Housearea between #{arealow,jdbcType=INTEGER} and #{areatop,jdbcType=INTEGER})
+    and (Houseage between #{agelow,jdbcType=INTEGER} and #{agetop,jdbcType=INTEGER})
+    and (bedroom between #{bedlow,jdbcType=INTEGER} and #{bedtop,jdbcType=INTEGER}) and Housestate = 0 order by HouseID desc
+  </select>
+
+  <select id="indexsearchbyprice" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from house_info
+    where Houseaddress like concat("%",#{address},"%")
+    and (Housearea between #{arealow,jdbcType=INTEGER} and #{areatop,jdbcType=INTEGER})
+    and (Houseage between #{agelow,jdbcType=INTEGER} and #{agetop,jdbcType=INTEGER})
+    and (bedroom between #{bedlow,jdbcType=INTEGER} and #{bedtop,jdbcType=INTEGER}) and Housestate = 0 order by Houseprice asc,HouseID desc
+  </select>
+
+  <update id="sellout">
+    update house_info
+    set  Housestate = 3 where HouseID = #{hid,jdbcType=INTEGER}
+  </update>
+  <update id="uphstate">
+    update house_info
+    set  Housestate = 1 where HouseID = #{hid,jdbcType=INTEGER}
+  </update>
+  <update id="uphstateok">
+    update house_info
+    set  Housestate = 0 where HouseID = #{hid,jdbcType=INTEGER}
+  </update>
+  <update id="deletelike">
+    update house_info
+    set  Houselike = Houselike-1 where HouseID = #{hid,jdbcType=INTEGER}
+  </update>
+</mapper>

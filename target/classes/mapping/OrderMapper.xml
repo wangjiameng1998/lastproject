@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.dao.OrderMapper">
+  <resultMap id="BaseResultMap" type="com.springboot.dataObject.Order">
+    <id column="OrderID" jdbcType="INTEGER" property="orderid" />
+    <result column="HouseID" jdbcType="INTEGER" property="houseid" />
+    <result column="Housebuyer" jdbcType="INTEGER" property="housebuyer" />
+    <result column="Orderstate" jdbcType="INTEGER" property="orderstate" />
+    <result column="field" jdbcType="VARCHAR" property="field" />
+    <result column="Ordertime" jdbcType="TIMESTAMP" property="ordertime" />
+    <result column="field1" jdbcType="VARCHAR" property="field1" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    OrderID, HouseID, Housebuyer, Orderstate, field, Ordertime, field1
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from houseorder
+    where OrderID = #{orderid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from houseorder
+    where OrderID = #{orderid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.springboot.dataObject.Order">
+    insert into houseorder (OrderID, HouseID, Housebuyer, 
+      Orderstate, field, Ordertime, 
+      field1)
+    values (#{orderid,jdbcType=INTEGER}, #{houseid,jdbcType=INTEGER}, #{housebuyer,jdbcType=INTEGER}, 
+      #{orderstate,jdbcType=INTEGER}, #{field,jdbcType=VARCHAR}, #{ordertime,jdbcType=TIMESTAMP}, 
+      #{field1,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.springboot.dataObject.Order">
+    insert into houseorder
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        OrderID,
+      </if>
+      <if test="houseid != null">
+        HouseID,
+      </if>
+      <if test="housebuyer != null">
+        Housebuyer,
+      </if>
+      <if test="orderstate != null">
+        Orderstate,
+      </if>
+      <if test="field != null">
+        field,
+      </if>
+      <if test="ordertime != null">
+        Ordertime,
+      </if>
+      <if test="field1 != null">
+        field1,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderid != null">
+        #{orderid,jdbcType=INTEGER},
+      </if>
+      <if test="houseid != null">
+        #{houseid,jdbcType=INTEGER},
+      </if>
+      <if test="housebuyer != null">
+        #{housebuyer,jdbcType=INTEGER},
+      </if>
+      <if test="orderstate != null">
+        #{orderstate,jdbcType=INTEGER},
+      </if>
+      <if test="field != null">
+        #{field,jdbcType=VARCHAR},
+      </if>
+      <if test="ordertime != null">
+        #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="field1 != null">
+        #{field1,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.springboot.dataObject.Order">
+    update houseorder
+    <set>
+      <if test="houseid != null">
+        HouseID = #{houseid,jdbcType=INTEGER},
+      </if>
+      <if test="housebuyer != null">
+        Housebuyer = #{housebuyer,jdbcType=INTEGER},
+      </if>
+      <if test="orderstate != null">
+        Orderstate = #{orderstate,jdbcType=INTEGER},
+      </if>
+      <if test="field != null">
+        field = #{field,jdbcType=VARCHAR},
+      </if>
+      <if test="ordertime != null">
+        Ordertime = #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="field1 != null">
+        field1 = #{field1,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where OrderID = #{orderid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.springboot.dataObject.Order">
+    update houseorder
+    set HouseID = #{houseid,jdbcType=INTEGER},
+      Housebuyer = #{housebuyer,jdbcType=INTEGER},
+      Orderstate = #{orderstate,jdbcType=INTEGER},
+      field = #{field,jdbcType=VARCHAR},
+      Ordertime = #{ordertime,jdbcType=TIMESTAMP},
+      field1 = #{field1,jdbcType=VARCHAR}
+    where OrderID = #{orderid,jdbcType=INTEGER}
+  </update>
+
+  <select id="listallorder" resultMap="BaseResultMap">
+  select
+  <include refid="Base_Column_List" />
+  from houseorder order by Ordertime desc
+</select>
+  <select id="listallorderm" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from houseorder where  HouseID=any(select HouseID from house_info where Houseowner = #{m,jdbcType=INTEGER}) order by Ordertime desc
+  </select>
+  <select id="listorderok" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from houseorder where Orderstate = 4
+    order by Ordertime desc
+  </select>
+
+  <select id="listorderon" resultMap="BaseResultMap">
+  select
+  <include refid="Base_Column_List" />
+  from houseorder where Orderstate = 1 or 2 or 3
+  order by Ordertime desc
+</select>
+
+  <select id="listorderonm" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from houseorder where  HouseID=any(select HouseID from house_info where Houseowner = #{m,jdbcType=INTEGER})
+    and (Orderstate !=4) and (Orderstate !=0) order by Ordertime desc
+  </select>
+
+  <select id="listorderokm" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from houseorder where  HouseID=any(select HouseID from house_info where Houseowner = #{m,jdbcType=INTEGER})
+    and (Orderstate = 4) order by Ordertime desc
+  </select>
+
+  <select id="listuserorder" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from houseorder where Housebuyer = #{uid,jdbcType=INTEGER}  order by Ordertime desc
+  </select>
+
+  <update id="deleteorder">
+    update houseorder set Orderstate =0 where OrderID = #{oid,jdbcType=INTEGER}
+  </update>
+
+  <update id="okorder">
+    update houseorder set Orderstate =2 where OrderID = #{oid,jdbcType=INTEGER}
+  </update>
+
+  <update id="queorder">
+    update houseorder set Orderstate =3 where OrderID = #{oid,jdbcType=INTEGER}
+  </update>
+  <update id="moneyorder">
+    update houseorder set Orderstate =4 where OrderID = #{oid,jdbcType=INTEGER}
+  </update>
+
+</mapper>

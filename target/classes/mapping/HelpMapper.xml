@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.dao.HelpMapper">
+  <resultMap id="BaseResultMap" type="com.springboot.dataObject.Help">
+    <id column="HelpID" jdbcType="INTEGER" property="helpid" />
+    <result column="Helpuser" jdbcType="INTEGER" property="helpuser" />
+    <result column="Helpmanager" jdbcType="INTEGER" property="helpmanager" />
+    <result column="Helpques" jdbcType="VARCHAR" property="helpques" />
+    <result column="Helptime" jdbcType="TIMESTAMP" property="helptime" />
+    <result column="Helpsend" jdbcType="INTEGER" property="helpsend" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    HelpID, Helpuser, Helpmanager, Helpques, Helptime, Helpsend
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from help
+    where HelpID = #{helpid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from help
+    where HelpID = #{helpid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.springboot.dataObject.Help">
+    insert into help (HelpID, Helpuser, Helpmanager, 
+      Helpques, Helptime, Helpsend
+      )
+    values (#{helpid,jdbcType=INTEGER}, #{helpuser,jdbcType=INTEGER}, #{helpmanager,jdbcType=INTEGER}, 
+      #{helpques,jdbcType=VARCHAR}, #{helptime,jdbcType=TIMESTAMP}, #{helpsend,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.springboot.dataObject.Help">
+    insert into help
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="helpid != null">
+        HelpID,
+      </if>
+      <if test="helpuser != null">
+        Helpuser,
+      </if>
+      <if test="helpmanager != null">
+        Helpmanager,
+      </if>
+      <if test="helpques != null">
+        Helpques,
+      </if>
+      <if test="helptime != null">
+        Helptime,
+      </if>
+      <if test="helpsend != null">
+        Helpsend,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="helpid != null">
+        #{helpid,jdbcType=INTEGER},
+      </if>
+      <if test="helpuser != null">
+        #{helpuser,jdbcType=INTEGER},
+      </if>
+      <if test="helpmanager != null">
+        #{helpmanager,jdbcType=INTEGER},
+      </if>
+      <if test="helpques != null">
+        #{helpques,jdbcType=VARCHAR},
+      </if>
+      <if test="helptime != null">
+        #{helptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="helpsend != null">
+        #{helpsend,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.springboot.dataObject.Help">
+    update help
+    <set>
+      <if test="helpuser != null">
+        Helpuser = #{helpuser,jdbcType=INTEGER},
+      </if>
+      <if test="helpmanager != null">
+        Helpmanager = #{helpmanager,jdbcType=INTEGER},
+      </if>
+      <if test="helpques != null">
+        Helpques = #{helpques,jdbcType=VARCHAR},
+      </if>
+      <if test="helptime != null">
+        Helptime = #{helptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="helpsend != null">
+        Helpsend = #{helpsend,jdbcType=INTEGER},
+      </if>
+    </set>
+    where HelpID = #{helpid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.springboot.dataObject.Help">
+    update help
+    set Helpuser = #{helpuser,jdbcType=INTEGER},
+      Helpmanager = #{helpmanager,jdbcType=INTEGER},
+      Helpques = #{helpques,jdbcType=VARCHAR},
+      Helptime = #{helptime,jdbcType=TIMESTAMP},
+      Helpsend = #{helpsend,jdbcType=INTEGER}
+    where HelpID = #{helpid,jdbcType=INTEGER}
+  </update>
+  <select id="getallhelp" resultType="java.lang.Integer">
+    select DISTINCT Helpuser
+    from help
+    where Helpmanager = #{mid,jdbcType=INTEGER}
+  </select>
+  <select id="gethelp" resultMap="BaseResultMap">
+    select  <include refid="Base_Column_List" />
+    from help
+    where Helpmanager = #{mid,jdbcType=INTEGER} and Helpuser = #{uid,jdbcType=INTEGER} order by Helptime asc
+  </select>
+
+  <select id="getuserhelp" resultType="java.lang.Integer">
+    select DISTINCT Helpmanager
+    from help
+    where Helpuser = #{uid,jdbcType=INTEGER}
+  </select>
+</mapper>

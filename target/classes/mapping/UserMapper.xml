@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.springboot.dataObject.User">
+    <id column="UserID" jdbcType="INTEGER" property="userid" />
+    <result column="Username" jdbcType="VARCHAR" property="username" />
+    <result column="Usertele" jdbcType="VARCHAR" property="usertele" />
+    <result column="Usersex" jdbcType="CHAR" property="usersex" />
+    <result column="Userhead" jdbcType="VARCHAR" property="userhead" />
+    <result column="Useraddress" jdbcType="VARCHAR" property="useraddress" />
+    <result column="Usermail" jdbcType="VARCHAR" property="usermail" />
+    <result column="Userpower" jdbcType="INTEGER" property="userpower" />
+    <result column="field1" jdbcType="VARCHAR" property="field1" />
+    <result column="field2" jdbcType="VARCHAR" property="field2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    UserID, Username, Usertele, Usersex, Userhead, Useraddress, Usermail, Userpower, 
+    field1, field2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_info
+    where UserID = #{userid,jdbcType=INTEGER}
+  </select>
+  <select id="selectByTele" parameterType="java.lang.String" resultMap="BaseResultMap">
+  select
+  <include refid="Base_Column_List" />
+  from user_info
+  where Usertele = #{tele,jdbcType=VARCHAR}
+</select>
+
+
+  <select id="getuserbyid"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user_info where UserID = #{userid,jdbcType=INTEGER}
+  </select>
+
+  <select id="getuserbyname" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user_info where Username like concat("%",#{username},"%")  order by UserID asc
+  </select>
+
+  <select id="getuserbytele" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user_info where Usertele = #{tele,jdbcType=VARCHAR}  order by UserID asc
+  </select>
+
+  <select id="getalluser" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user_info order by UserID asc
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user_info
+    where UserID = #{userid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.springboot.dataObject.User">
+    insert into user_info (UserID, Username, Usertele, 
+      Usersex, Userhead, Useraddress, 
+      Usermail, Userpower, field1, 
+      field2)
+    values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{usertele,jdbcType=VARCHAR}, 
+      #{usersex,jdbcType=CHAR}, #{userhead,jdbcType=VARCHAR}, #{useraddress,jdbcType=VARCHAR}, 
+      #{usermail,jdbcType=VARCHAR}, #{userpower,jdbcType=INTEGER}, #{field1,jdbcType=VARCHAR}, 
+      #{field2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.springboot.dataObject.User">
+    insert into user_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        UserID,
+      </if>
+      <if test="username != null">
+        Username,
+      </if>
+      <if test="usertele != null">
+        Usertele,
+      </if>
+      <if test="usersex != null">
+        Usersex,
+      </if>
+      <if test="userhead != null">
+        Userhead,
+      </if>
+      <if test="useraddress != null">
+        Useraddress,
+      </if>
+      <if test="usermail != null">
+        Usermail,
+      </if>
+      <if test="userpower != null">
+        Userpower,
+      </if>
+      <if test="field1 != null">
+        field1,
+      </if>
+      <if test="field2 != null">
+        field2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="usertele != null">
+        #{usertele,jdbcType=VARCHAR},
+      </if>
+      <if test="usersex != null">
+        #{usersex,jdbcType=CHAR},
+      </if>
+      <if test="userhead != null">
+        #{userhead,jdbcType=VARCHAR},
+      </if>
+      <if test="useraddress != null">
+        #{useraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="usermail != null">
+        #{usermail,jdbcType=VARCHAR},
+      </if>
+      <if test="userpower != null">
+        #{userpower,jdbcType=INTEGER},
+      </if>
+      <if test="field1 != null">
+        #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        #{field2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.springboot.dataObject.User">
+    update user_info
+    <set>
+      <if test="username != null">
+        Username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="usertele != null">
+        Usertele = #{usertele,jdbcType=VARCHAR},
+      </if>
+      <if test="usersex != null">
+        Usersex = #{usersex,jdbcType=CHAR},
+      </if>
+      <if test="userhead != null">
+        Userhead = #{userhead,jdbcType=VARCHAR},
+      </if>
+      <if test="useraddress != null">
+        Useraddress = #{useraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="usermail != null">
+        Usermail = #{usermail,jdbcType=VARCHAR},
+      </if>
+      <if test="userpower != null">
+        Userpower = #{userpower,jdbcType=INTEGER},
+      </if>
+      <if test="field1 != null">
+        field1 = #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null">
+        field2 = #{field2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where UserID = #{userid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.springboot.dataObject.User">
+    update user_info
+    set Username = #{username,jdbcType=VARCHAR},
+      Usertele = #{usertele,jdbcType=VARCHAR},
+      Usersex = #{usersex,jdbcType=CHAR},
+      Userhead = #{userhead,jdbcType=VARCHAR},
+      Useraddress = #{useraddress,jdbcType=VARCHAR},
+      Usermail = #{usermail,jdbcType=VARCHAR},
+      Userpower = #{userpower,jdbcType=INTEGER},
+      field1 = #{field1,jdbcType=VARCHAR},
+      field2 = #{field2,jdbcType=VARCHAR}
+    where UserID = #{userid,jdbcType=INTEGER}
+  </update>
+  <update id="nofreezebyuserid" parameterType="com.springboot.dataObject.User">
+    update user_info
+    set Userpower = 0 where UserID = #{userid,jdbcType=INTEGER}
+  </update>
+  <update id="freezebyuserid" parameterType="com.springboot.dataObject.User">
+    update user_info
+    set Userpower = 1 where UserID = #{userid,jdbcType=INTEGER}
+  </update>
+</mapper>
